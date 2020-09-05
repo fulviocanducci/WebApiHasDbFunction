@@ -43,7 +43,7 @@ namespace WebApi.Controllers
         [HttpGet("expertise/{expertise}")]
         public async Task<ActionResult<Doctor>> GetDoctorExpertise(string expertise)
         {
-            IQueryable<Doctor> query = _context.Doctor.Where(x => FunctionsSQLServer.CharIndex(expertise, "Expertise") > 0);    
+            IQueryable<Doctor> query = _context.Doctor.Where(x => FunctionsSQLServer.FSGetExpertise(expertise, "Expertise") > 0);    
             var doctors = await query.ToListAsync();
             if (doctors == null || doctors.Count == 0)
             {

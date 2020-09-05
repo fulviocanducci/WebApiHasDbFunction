@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Newtonsoft.Json;
+using System.Security.Cryptography.X509Certificates;
 
 namespace WebApi.Models.Maps
 {
@@ -26,7 +27,9 @@ namespace WebApi.Models.Maps
                 .HasConversion(
                     from => JsonConvert.SerializeObject(from),
                     to => JsonConvert.DeserializeObject<string[]>(to)
-                );          
+                );
+
+            builder.HasIndex(p => p.Expertise);
         }
     }
 
