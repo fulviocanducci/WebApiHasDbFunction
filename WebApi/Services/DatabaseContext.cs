@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
-using System;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Reflection;
 using WebApi.Models;
 using WebApi.Models.Maps;
@@ -87,6 +85,6 @@ namespace WebApi.Services
             => typeof(FunctionsSQLServer).GetMethod(nameof(FunctionsSQLServer.FSGetExpertise));
         public static MethodInfo CharIndexToMethodInfo()
             => typeof(FunctionsSQLServer).GetMethod(nameof(FunctionsSQLServer.CharIndex));
-        
+
     }
 }
